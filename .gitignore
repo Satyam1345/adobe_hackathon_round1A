@@ -1,0 +1,7 @@
+venv/
+resources 
+input/
+output/
+/train_model.py
+input/sample.pdf
+output/sample.json
