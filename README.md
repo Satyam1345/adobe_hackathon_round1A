@@ -1,59 +1,5 @@
 # Adobe India Hackathon: Connecting the Dots - Round 1A Submission
 
-
-
-## Future Work and Potential Improvements
-
-- **Deeper Hierarchy:** Extend the model to recognize H4, H5, and H6 headings for more granular outlines.
-- **Enhanced Multilingual Support:** While the current feature set is language-agnostic, the model could be explicitly trained on labeled data from non-English documents (e.g., Japanese, Hindi) to earn the multilingual bonus.
-- **Advanced Title Heuristics:** Improve title detection by analyzing the document's metadata or by using a model to differentiate between a title and a cover page heading.
-- **Table of Contents (ToC) Parsing:** Explicitly parse the ToC when available to create a highly accurate "ground truth" outline for the rest of the document.
-
----
-
-## Model Performance Metrics (as of July 27, 2025)
-
-**Heading Detection Metrics (Binary)**
-- Accuracy: 0.9921
-- Precision: 0.7000
-- Recall: 0.6364
-- F1-score: 0.6667
-- Confusion Matrix:
-  [[875   3]
-   [  4   7]]
-
-**Heading Level Metrics (Multi-class)**
-| Class | Precision | Recall | F1-score | Support |
-|-------|-----------|--------|----------|---------|
-| H1    | 0.33      | 0.50   | 0.40     | 2       |
-| H2    | 0.60      | 0.75   | 0.67     | 4       |
-| H3    | 1.00      | 0.60   | 0.75     | 5       |
-| H4    | 1.00      | 1.00   | 1.00     | 1       |
-| **Accuracy** |      |        | 0.67     | 12      |
-| **Macro avg** | 0.73 | 0.71 | 0.70     | 12      |
-| **Weighted avg** | 0.76 | 0.67 | 0.68   | 12      |
-
-**Feature Importances (Binary Classifier)**
-- font_size: 0.1643
-- bold: 0.0524
-- len: 0.1887
-- upper_ratio: 0.0199
-- ends_colon: 0.0398
-- font_rank: 0.1280
-- centered: 0.0289
-- indentation: 0.1605
-- v_spacing: 0.2176
-
-**Feature Importances (Multi-class Classifier)**
-- font_size: 0.3509
-- bold: 0.1937
-- len: 0.1404
-- upper_ratio: 0.0011
-- ends_colon: 0.0415
-- font_rank: 0.0389
-- centered: 0.0153
-- indentation: 0.0730
-- v_spacing: 0.1453
 Welcome to my submission for Round 1A of the Adobe India Hackathon. The "Connecting the Dots" challenge asks us to rethink how we interact with documents, transforming static PDFs into intelligent, structured sources of knowledge.
 
 This project tackles the foundational step of that vision: **making sense of a document's structure**. It provides a robust, offline, and high-performance system that ingests any PDF and, using a sophisticated machine learning pipeline, extracts its core semantic outline—the title and all hierarchical headings (H1, H2, H3).
@@ -192,6 +138,52 @@ The project is organized to be clean, modular, and easy to understand.
 ├── Dockerfile                      # Instructions to build the Docker container
 └── README.md                       # This file
 ```
+
+---
+
+## Model Performance Metrics
+
+**Heading Detection Metrics (Binary)**
+- Accuracy: 0.9921
+- Precision: 0.7000
+- Recall: 0.6364
+- F1-score: 0.6667
+- Confusion Matrix:
+  [[875   3]
+   [  4   7]]
+
+**Heading Level Metrics (Multi-class)**
+| Class | Precision | Recall | F1-score | Support |
+|-------|-----------|--------|----------|---------|
+| H1    | 0.33      | 0.50   | 0.40     | 2       |
+| H2    | 0.60      | 0.75   | 0.67     | 4       |
+| H3    | 1.00      | 0.60   | 0.75     | 5       |
+| H4    | 1.00      | 1.00   | 1.00     | 1       |
+| **Accuracy** |      |        | 0.67     | 12      |
+| **Macro avg** | 0.73 | 0.71 | 0.70     | 12      |
+| **Weighted avg** | 0.76 | 0.67 | 0.68   | 12      |
+
+**Feature Importances (Binary Classifier)**
+- font_size: 0.1643
+- bold: 0.0524
+- len: 0.1887
+- upper_ratio: 0.0199
+- ends_colon: 0.0398
+- font_rank: 0.1280
+- centered: 0.0289
+- indentation: 0.1605
+- v_spacing: 0.2176
+
+**Feature Importances (Multi-class Classifier)**
+- font_size: 0.3509
+- bold: 0.1937
+- len: 0.1404
+- upper_ratio: 0.0011
+- ends_colon: 0.0415
+- font_rank: 0.0389
+- centered: 0.0153
+- indentation: 0.0730
+- v_spacing: 0.1453
 
 ---
 
